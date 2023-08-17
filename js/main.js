@@ -1,23 +1,21 @@
 $(function() {
-    //dodanie atrybutu:
-    $('#about h2').attr('id', 'main-heading');
+    $('p').css('background-color', 'pink');
 
-    //wartosc atrybutu 2 elementu kolekcji ('a' przy drugim p):
-    let titleValue = $('a').eq(1).attr('title');
-    //console.log(titleValue);
+    $('a').css({
+        'textDecoration': 'none',
+        'color': 'red',
+        'font-size': 20 //'2em'
 
-    $('section').removeAttr('id');
+    });
 
-    $('section').addClass('main-section');
+    $('h2').text('New heading text');
 
-    $('.description').removeClass('description');
+    $('p').eq(0).html('Lorem <span>ipsum</span>');
 
-    //czy posiada klasę?
-    console.log($('section').hasClass('main-section'));
+    $('#name').val('Nela');
 
-    //przełącz klasę:
-    $('p').toggleClass('content');
-
-    //dodanie dwóch klas na raz (oddzielenie spacją):
-    $('li').addClass('item ul-item');
+    $('.list-item').each(function(index){
+        $(this).css('margin-left', index * 10 + 'px');
+        //this- obiekt dom na ktorym konktretnie jest przeprowadzone działanie
+    });
 });
