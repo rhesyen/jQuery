@@ -1,63 +1,23 @@
-/* standardowe rozpoczęcie pracy na obiekcie document
-skrócony zapis document.ready */
 $(function() {
-    const section = $('#about');
-    //console.log(section);
+    //dodanie atrybutu:
+    $('#about h2').attr('id', 'main-heading');
 
-    const listItems  = $('.list-item');
-    //console.log(listItems);
+    //wartosc atrybutu 2 elementu kolekcji ('a' przy drugim p):
+    let titleValue = $('a').eq(1).attr('title');
+    //console.log(titleValue);
 
-    //drugi z kolei list-item:
-    const secondItem  = $('.list-item:nth-of-type(2)');
-    //console.log(secondItem);
+    $('section').removeAttr('id');
 
-    const links = $('a[title="See more"]');
-    //console.log(links);
+    $('section').addClass('main-section');
 
-    //tylko potomkowie h2 obiektów section:
-    const headingInSection = $('section h2');
-    //console.log(headingInSection);
+    $('.description').removeClass('description');
 
-    //referencja do istniejacego obiektu z modelu DOM
-    const documentObj = $(document);
-    //console.log(documentObj);
+    //czy posiada klasę?
+    console.log($('section').hasClass('main-section'));
 
-    //---------odwolanie do konkretnych elementow listy za pomocą metod jQuery:
-    const fifthItem = $('.list-item').eq(4); //.first(); / .last();
-    //console.log(fifthItem);
+    //przełącz klasę:
+    $('p').toggleClass('content');
 
-    const paragraphNotDescription = $('p').not('.description');
-    //console.log(paragraphNotDescription);
-
-    const linksInSection = $('section').find('a');
-    //console.log(linksInSection);
-
-    //---------relacje w dokumencie DOM jQuery:
-    const linkParents = $('a').parent();
-    //console.log(linkParents);
-
-    const sectionChildren = $('section').children();
-    //console.log(sectionChildren);
-
-    const elementAfterDesciption = $('.description').next(); //.prev();
-    //console.log(elementAfterDesciption);
-
-    //---------dodawanie elementów w dokumencie DOM jQuery:
-    const newLi = $('<li class="list-item">New item</li>');
-    //dodanie newLi do struktury:
-
-    //wewnątrz znacznika:
-    $('ul').prepend(newLi); //na początku  listy
-    $('ul').append('<li class="list-item">Last item</li>'); //na końcu listy
-
-    //przed/po znaczniku:
-    $('ul').before('<h3>Lista</h3>');
-    const newFooter = $('<footer>Autor: Jan Kowalski</footer>');
-    $('ul').after(newFooter);
-
-    //czyszczenie znacznika:    
-    $('h2').empty();
-
-    //usuwanie:
-    $('.content').remove();
+    //dodanie dwóch klas na raz (oddzielenie spacją):
+    $('li').addClass('item ul-item');
 });
