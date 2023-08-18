@@ -1,11 +1,13 @@
 $(document).ready(function() {
     
-    const heading = $('h1');
+    $('#click-button').click(function(){
+        $(this).css('background-color', 'green');
+    });
 
-    $('.animate').click(function(){
-        heading.animate({opacity: 0.3, fontSize: '3em'}, 3000, function(){
-            $(this).after('<p>Animacja zakończona</p>');
-            //this odwoluje się do obiektu 'heading', na ktorym dziala funkcja (tego wyzej!)
-        })
+    //funkcja strzałkowa zmienia sens slowa this, to nie odwołanie do obiektu przycisku, tylko całego dokumentu!
+    $('#click-button').click((e)=> {
+        //zamiast 'this' dajemy 'e.target'-na nim zostało wywołane zdarzenie
+        //$(this).css('color', 'yellow'); -nie dziala
+        $(e.target).css('color', 'yellow');
     });
 });
