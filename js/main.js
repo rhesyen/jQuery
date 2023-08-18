@@ -1,21 +1,11 @@
-$(function() {
-    $('p').css('background-color', 'pink');
+$(document).ready(function() {
+    
+    const heading = $('h1');
 
-    $('a').css({
-        'textDecoration': 'none',
-        'color': 'red',
-        'font-size': 20 //'2em'
-
-    });
-
-    $('h2').text('New heading text');
-
-    $('p').eq(0).html('Lorem <span>ipsum</span>');
-
-    $('#name').val('Nela');
-
-    $('.list-item').each(function(index){
-        $(this).css('margin-left', index * 10 + 'px');
-        //this- obiekt dom na ktorym konktretnie jest przeprowadzone działanie
+    $('.animate').click(function(){
+        heading.animate({opacity: 0.3, fontSize: '3em'}, 3000, function(){
+            $(this).after('<p>Animacja zakończona</p>');
+            //this odwoluje się do obiektu 'heading', na ktorym dziala funkcja (tego wyzej!)
+        })
     });
 });
