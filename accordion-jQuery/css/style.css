@@ -38,6 +38,10 @@ body {
     color: #1e3768;
 }
 
+.open .accordion-title::before {
+    content: "-"; /* pseudoklasa, najczestsze rozwiazanie problemu */
+}
+
 .accordion-content {
     display: none;
 }
